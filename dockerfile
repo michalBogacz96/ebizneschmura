@@ -34,5 +34,4 @@ ENV PATH $PATH:$JAVA_HOME/bin
 RUN \
 curl -sSLO https://github.com/pinterest/ktlint/releases/download/0.45.0/ktlint && chmod a+x ktlint
 
-EXPOSE 8080 8000
-CMD gradle build
+EXPOSE 8080
