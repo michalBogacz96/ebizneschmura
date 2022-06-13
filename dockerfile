@@ -26,16 +26,18 @@ RUN source /root/.bashrc
 
 RUN source "$SDKMAN_DIR/bin/sdkman-init.sh" && sdk install java 11.0.2-open
 RUN source "$SDKMAN_DIR/bin/sdkman-init.sh" && sdk install kotlin
-RUN source "$SDKMAN_DIR/bin/sdkman-init.sh" && sdk install maven
+RUN source "$SDKMAN_DIR/bin/sdkman-init.sh" && sdk install maven 3.6.0
 
 ENV JAVA_HOME $SDKMAN_DIR/candidates/java/11.0.2-open
+ENV M2 $SDKMAN_DIR/candidates/maven/3.6.0
 ENV PATH $PATH:$JAVA_HOME/bin
+ENV PATH $PATH:$M2/bin
 
 RUN \
 curl -sSLO https://github.com/pinterest/ktlint/releases/download/0.45.0/ktlint && chmod a+x ktlint
 
 EXPOSE 8080
-WORKDIR /
-COPY . ./
-WORKDIR /ebizneschmura
-CMD mvn install
+COPY pom.xml /build/
+COPY src /build/src/
+WORKDIR /build/
+RUN mvn clean install
