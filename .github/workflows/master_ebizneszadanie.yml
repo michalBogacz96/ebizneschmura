@@ -48,4 +48,4 @@ jobs:
         app-name: 'ebizneszadanie'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_a5934a8d33b7449fa2de35a8d9151f2b }}
-        images: 'index.docker.io/${{ secrets.AzureAppService_ContainerUsername_2bc4951955ff4934ba388aabd6e8ebf2 }}/michalbogacz96/ebizneschmura:${{ github.sha }}'
+        images: michalbogacz96/ebizneschmura:latest
