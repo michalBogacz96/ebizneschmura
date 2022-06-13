@@ -35,3 +35,7 @@ RUN \
 curl -sSLO https://github.com/pinterest/ktlint/releases/download/0.45.0/ktlint && chmod a+x ktlint
 
 EXPOSE 8080
+WORKDIR /
+COPY . ./
+WORKDIR /ebizneschmura
+CMD mvn install
