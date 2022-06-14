@@ -39,5 +39,3 @@ curl -sSLO https://github.com/pinterest/ktlint/releases/download/0.45.0/ktlint &
 EXPOSE 8080
 COPY pom.xml /build/
 COPY src /build/src/
-WORKDIR /build/
-RUN mvn clean install
