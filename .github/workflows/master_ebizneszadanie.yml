@@ -26,8 +26,7 @@ jobs:
         username: ${{ secrets.AzureAppService_ContainerUsername_2bc4951955ff4934ba388aabd6e8ebf2 }}
         password: ${{ secrets.AzureAppService_ContainerPassword_6128d0c9792347bc852982a2aaf9f096 }}
         
-    - name: Build with Maven
-      run: mvn clean spring-boot:run
+
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
